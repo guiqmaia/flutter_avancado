@@ -21,8 +21,8 @@ class HeroDestinyPage extends StatelessWidget {
       color: Theme.of(context).canvasColor,
       alignment: FractionalOffset.center,
       child: SizedBox(
-        height: kMaxRadius * 2,
-        width: kMaxRadius * 2,
+        height: kMaxRadius * 2.1,
+        width: kMaxRadius * 2.1,
         child: Hero(
           tag: imageName,
           createRectTween: createRectTween,
@@ -34,9 +34,30 @@ class HeroDestinyPage extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Image.asset(
-                  imageName,
-                  fit: BoxFit.contain,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      imageName,
+                      fit: BoxFit.contain,
+                    ),
+                    Positioned(
+                      width: 175,
+                      bottom: 0,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            description,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 20,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),
