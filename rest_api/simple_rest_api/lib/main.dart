@@ -10,7 +10,7 @@ void main() {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         brightness: Brightness.light,
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.blueGrey,
         useMaterial3: true,
       ),
     ),

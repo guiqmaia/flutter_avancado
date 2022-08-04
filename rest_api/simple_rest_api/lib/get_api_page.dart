@@ -46,26 +46,26 @@ class _GetApiPageState extends State<GetApiPage> {
     return Scaffold(
       backgroundColor: Colors.grey.shade100,
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'GET',
           style: TextStyle(
-            color: Colors.blue.shade800,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
           ),
         ),
+        backgroundColor: Colors.blueGrey.shade800,
         elevation: 1,
         leading: IconButton(
           onPressed: () {
             Navigator.of(context).pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Icons.keyboard_arrow_left,
-            color: Colors.blue.shade800,
+            color: Colors.white,
             size: 40,
           ),
         ),
         centerTitle: true,
-        backgroundColor: Colors.blue.shade200,
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
