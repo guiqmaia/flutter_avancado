@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'movie_model.dart';
 
-class MovieScreen extends StatelessWidget {
+class MovieDetailedPage extends StatelessWidget {
   MovieModel movie;
 
-  MovieScreen({
+  MovieDetailedPage({
     Key? key,
     required this.movie,
   }) : super(key: key);
@@ -14,21 +14,14 @@ class MovieScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey.shade50,
-      appBar: AppBar(
-        backgroundColor: const Color.fromRGBO(71, 104, 138, 1),
-        leading: IconButton(
-          onPressed: (() => Navigator.of(context).pop()),
-          icon: const Icon(
-            Icons.keyboard_arrow_left,
-            size: 35,
-          ),
-        ),
-      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
+              const SizedBox(
+                height: 40,
+              ),
               Row(
                 children: [
                   Expanded(

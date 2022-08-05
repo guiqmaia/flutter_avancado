@@ -74,7 +74,7 @@ class MoviesList extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => MovieScreen(movie: movies[index]),
+                  builder: (context) => MovieDetailedPage(movie: movies[index]),
                 ),
               );
             },
