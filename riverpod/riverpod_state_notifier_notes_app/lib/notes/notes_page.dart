@@ -14,7 +14,9 @@ class NotesPage extends HookConsumerWidget {
   NotesPage({Key? key}) : super(key: key);
 
   final titleController = TextEditingController();
-
+  final descriptionController = TextEditingController();
+  FocusNode titleFocus = FocusNode();
+  FocusNode descriptionFocus = FocusNode();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final notes = ref.watch(notesProvider);
@@ -23,7 +25,7 @@ class NotesPage extends HookConsumerWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
-          'Notes',
+          'Notes App',
           style: TextStyle(
             fontWeight: FontWeight.bold,
             letterSpacing: 4,
@@ -37,22 +39,53 @@ class NotesPage extends HookConsumerWidget {
         padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
-            TextFormField(
-              controller: titleController,
-              style: const TextStyle(
-                color: Colors.pink,
+            Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 10,
               ),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                  borderSide: BorderSide(
-                    color: Colors.pink,
-                    width: 2,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextFormField(
+                focusNode: titleFocus,
+                onFieldSubmitted: (value) {
+                  descriptionFocus.requestFocus();
+                },
+                controller: titleController,
+                decoration: InputDecoration(
+                  label: const Text('Enter the title'),
+                  suffixText: 'Title',
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
                 ),
-                labelText: 'Enter the title',
-                labelStyle: TextStyle(
-                  letterSpacing: 3.5,
-                  fontSize: 22,
+              ),
+            ),
+            Container(
+              margin: const EdgeInsets.symmetric(
+                vertical: 10,
+              ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: TextFormField(
+                focusNode: descriptionFocus,
+                onFieldSubmitted: (value) {
+                  descriptionFocus.requestFocus();
+                },
+                controller: descriptionController,
+                decoration: InputDecoration(
+                  label: const Text('Enter the description'),
+                  suffixText: 'Description',
+                  suffixStyle: const TextStyle(
+                    color: Colors.pink,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
                 ),
               ),
             ),
@@ -81,12 +114,12 @@ class NotesPage extends HookConsumerWidget {
                         ),
                         leading: notes[index].isConcluded!
                             ? const Icon(
-                                CupertinoIcons.checkmark_alt_circle,
+                                CupertinoIcons.checkmark_alt_circle_fill,
                                 color: Colors.pink,
                                 size: 40,
                               )
                             : const Icon(
-                                CupertinoIcons.xmark_octagon,
+                                CupertinoIcons.xmark_octagon_fill,
                                 color: Colors.pink,
                                 size: 40,
                               ),
@@ -98,9 +131,17 @@ class NotesPage extends HookConsumerWidget {
                             color: Colors.pink,
                           ),
                         ),
+                        subtitle: Text(
+                          notes[index].description!,
+                          style: const TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.pink,
+                          ),
+                        ),
                         trailing: IconButton(
                           icon: const Icon(
-                            Icons.delete_outline,
+                            Icons.delete,
                             color: Colors.pink,
                             size: 35,
                           ),
@@ -121,10 +162,11 @@ class NotesPage extends HookConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          ref
-              .read(notesProvider.notifier)
-              .addNote(NoteModel(title: titleController.text));
+          ref.read(notesProvider.notifier).addNote(NoteModel(
+              title: titleController.text,
+              description: descriptionController.text));
           titleController.clear();
+          descriptionController.clear();
         },
         child: const Icon(
           Icons.note_add,
