@@ -3,7 +3,7 @@ import 'dart:convert';
 class NoteModel {
   String title;
   String? description;
-  bool? isConcluded;
+  bool isConcluded;
   NoteModel({
     required this.title,
     this.description,

@@ -2,13 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_state_notifier_notes_app/notes/note_model.dart';
-import 'package:riverpod_state_notifier_notes_app/notes/notes_notifier.dart';
 
-final notesProvider = StateNotifierProvider<NotesNotifier, List<NoteModel>>(
-  (ref) => NotesNotifier(),
-);
-
-var concludedProvider = StateProvider((ref) => false);
+import 'notes_provider.dart';
 
 class NotesPage extends HookConsumerWidget {
   NotesPage({Key? key}) : super(key: key);
@@ -112,7 +107,7 @@ class NotesPage extends HookConsumerWidget {
                             width: 1.5,
                           ),
                         ),
-                        leading: notes[index].isConcluded!
+                        leading: notes[index].isConcluded
                             ? const Icon(
                                 CupertinoIcons.checkmark_alt_circle_fill,
                                 color: Colors.pink,
