@@ -23,7 +23,7 @@ class DatabaseHelper {
     );
   }
 
-  //Method to create table in onCreate at openDatabase
+  //Method to create table on onCreate at openDatabase
   Future onCreateTable(Database db, int version) async {
     await db.execute(
       'CREATE TABLE IF NOT EXISTS Texts (id INTEGER PRIMARY KEY AUTOINCREMENT, title TEXT) ',
