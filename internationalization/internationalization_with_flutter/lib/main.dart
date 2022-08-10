@@ -9,6 +9,18 @@ void main() {
 final localeProvider =
     StateNotifierProvider<LocaleNotifier, Locale>((ref) => LocaleNotifier());
 
+class LocaleNotifier extends StateNotifier<Locale> {
+  LocaleNotifier() : super(const Locale('en', ''));
+
+  void changeLanguage() {
+    if (state == const Locale('en', '')) {
+      state = const Locale('pt', 'BR');
+    } else {
+      state = const Locale('en', '');
+    }
+  }
+}
+
 class MyApp extends HookConsumerWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -36,7 +48,6 @@ class MyHomePage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final locale = ref.watch(localeProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('INTL'),
@@ -71,17 +82,5 @@ class MyHomePage extends HookConsumerWidget {
         child: const Icon(Icons.language),
       ),
     );
-  }
-}
-
-class LocaleNotifier extends StateNotifier<Locale> {
-  LocaleNotifier() : super(const Locale('en', ''));
-
-  void changeLanguage() {
-    if (state == const Locale('en', '')) {
-      state = const Locale('pt', 'BR');
-    } else {
-      state = const Locale('en', '');
-    }
   }
 }
