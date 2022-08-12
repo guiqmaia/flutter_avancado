@@ -1,7 +1,7 @@
 import 'package:flame_splash_screen/flame_splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get_movies_rest_api_with_riverpod/src/presenter/ui/movies/movies_page.dart';
 
-import '../movies/movies_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);

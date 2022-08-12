@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 
 import '../../../domain/entities/movie_entity.dart';
 import '../../dto/movie_dto.dart';
@@ -13,10 +12,10 @@ class GetAllTrendingMoviesRemoteDatasourceImp implements IGetAllTrendingMoviesDa
   Future<List<MovieEntity>> getAllTrendingsMovies(String timeWindow) async {
     List<MovieEntity> movies = [];
     try {
-      final response = await dio.get(
-        'https://api.themoviedb.org/3/trending/$timeWindow',
+      Response response = await dio.get(
+        "https://api.themoviedb.org/3/trending/movie/$timeWindow",
         queryParameters: {
-          'api_key': '8ea92715f7d8106c05adb6c4d6f328af',
+          "api_key": "8ea92715f7d8106c05adb6c4d6f328af",
         },
       );
 
@@ -26,7 +25,7 @@ class GetAllTrendingMoviesRemoteDatasourceImp implements IGetAllTrendingMoviesDa
         ),
       );
     } catch (e) {
-      debugPrint(e.toString());
+      print(e.toString());
     }
     return movies;
   }
