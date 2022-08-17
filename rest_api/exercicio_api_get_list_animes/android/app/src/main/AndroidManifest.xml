@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.exercicio_api_get_list">
+    package="com.apianimeslist.appcursowarren">
    <application
         android:label="exercicio_api_get_list"
         android:name="${applicationName}"
