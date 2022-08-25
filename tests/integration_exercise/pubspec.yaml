@@ -1,0 +1,25 @@
+name: ideast
+description: It’s difficult for creators/writers to remember ideas, so an app to allow them to store ideas
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.17.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+ 
+  provider: ^6.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+flutter:
+  uses-material-design: true

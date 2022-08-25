@@ -1,5 +1,3 @@
-
-
 import 'package:flutter_test/flutter_test.dart';
 
 import 'change_counter.dart';
@@ -9,6 +7,7 @@ void main() {
   ChangeCounter changeCounter = ChangeCounter();
 
   late Person person;
+
   setUp(() {
     changeCounter.counter = 2;
     changeCounter.increment();
@@ -22,7 +21,7 @@ void main() {
   group('Testing Person class', () {
     test('Testing name and age', () {
       expect(person.idade, equals(25));
-      expect(person.nome, equals('Guilherme'));
+      expect(person.nome, anyElement('Guilherme'));
     });
 
     test('Testing yearsToRetirement method', () {
@@ -40,11 +39,13 @@ void main() {
     });
   });
 
-
   group('Testing ChangeCounter class', () {
-    test('Testing ChangeCounter initial value', () {
-      expect(changeCounter.counter, equals(3));
-    },);
+    test(
+      'Testing ChangeCounter initial value',
+      () {
+        expect(changeCounter.counter, equals(3));
+      },
+    );
 
     test('Testing ChangeCounter increment method', () {
       changeCounter.increment();

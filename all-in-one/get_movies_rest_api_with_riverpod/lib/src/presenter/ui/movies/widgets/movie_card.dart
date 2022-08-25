@@ -28,11 +28,13 @@ class MovieCard extends StatelessWidget {
                   padding: const EdgeInsets.only(
                     bottom: 20,
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(15),
-                    child: Image.network(
-                      'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                      fit: BoxFit.fill,
+                  child: SizedBox(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: Image.network(
+                        'https://image.tmdb.org/t/p/w500${movie.posterPath}',
+                        fit: BoxFit.fill,
+                      ),
                     ),
                   ),
                 ),

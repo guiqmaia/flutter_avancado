@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "241753669227",
+    "project_id": "ideast-27f81",
+    "storage_bucket": "ideast-27f81.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:241753669227:android:744da8abe71ccc46a1bb2e",
+        "android_client_info": {
+          "package_name": "com.raywenderlich.ideast"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "241753669227-sqjrq8quoc059662ps4mtku5o1bbsrdm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyACrXrImqBkYhpVuiO8KtCMdavX3Jm4MjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "241753669227-sqjrq8quoc059662ps4mtku5o1bbsrdm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "241753669227-8dktmsjuemgp8sh7rci6ldrm9d78p0ig.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.raywenderlich.ideast"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

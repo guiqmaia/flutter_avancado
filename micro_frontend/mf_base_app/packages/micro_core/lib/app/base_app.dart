@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 
 abstract class BaseApp {
   List<MicroApp> get microApps;
+
   Map<String, WidgetBuilderArgs> get baseRoutes;
+  
   final Map<String, WidgetBuilderArgs> routes = {};
 
   void registerRoutes() {
